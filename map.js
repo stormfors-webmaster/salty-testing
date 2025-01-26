@@ -1,8 +1,4 @@
-if (localStorage.getItem("devMode") === "true") {
-  customConsoleLog("Map");
-  throw new DevModeStop();
-}
-console.log("map embed loaded");
+console.log("map.js salty-testing");
 var Webflow = Webflow || [];
 Webflow.push(async function () {
   const mapboxToken =
