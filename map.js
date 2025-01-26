@@ -427,6 +427,3 @@ Webflow.push(async function () {
   }
   //end webflow push
 });
-
-  //end webflow push
-});
