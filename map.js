@@ -1,4 +1,8 @@
-console.log("map.js loaded");
+if (localStorage.getItem("devMode") === "true") {
+  customConsoleLog("Map");
+  throw new DevModeStop();
+}
+console.log("map embed loaded");
 var Webflow = Webflow || [];
 Webflow.push(async function () {
   const mapboxToken =
@@ -19,6 +23,19 @@ Webflow.push(async function () {
     center: mapStartPosition,
     pitch: mapStartPitch,
   });
+
+  map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
+
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      trackUserLocation: true,
+      showUserHeading: true,
+    }),
+    "bottom-right"
+  );
 
   window.dev = {
     openHome: openHomeSidebar,
@@ -44,6 +61,10 @@ Webflow.push(async function () {
       openBeachListSidebar();
       // Clear URL parameters after handling them
       window.history.pushState({}, "", window.location.pathname);
+    }
+
+    if (window.innerWidth <= 991) {
+      $(".mapboxgl-ctrl-bottom-right").hide();
     }
     //logMapCoordinates();
   }
@@ -171,6 +192,7 @@ Webflow.push(async function () {
         expandMap();
         setTimeout(() => {
           $("[sidebar-toggle=beach-list]").show();
+          $(".mapboxgl-ctrl-bottom-right").show();
         }, 1000);
       }
       if (
@@ -186,6 +208,7 @@ Webflow.push(async function () {
           transition: "none",
         });
         $("[sidebar-toggle=beach-list]").hide();
+        $(".mapboxgl-ctrl-bottom-right").hide();
       }
       if (e.target.matches("[toggle-sidebar=home]")) {
         toggleHomeSidebar();
@@ -380,9 +403,9 @@ Webflow.push(async function () {
       console.log(e);
 
       /* if (e.target.matches(".beach-marker")) {
-        console.log("beach-marker clicked");
-        console.log(e.target.id);
-      } */
+                  console.log("beach-marker clicked");
+                  console.log(e.target.id);
+                } */
     });
   }
 
@@ -402,5 +425,8 @@ Webflow.push(async function () {
       }
     });
   }
+  //end webflow push
+});
+
   //end webflow push
 });
