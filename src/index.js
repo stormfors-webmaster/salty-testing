@@ -5,9 +5,10 @@ import { Slider } from "./modules/slider.js";
 
 const devmode = localStorage.getItem("devMode") === "true";
 if (devmode) {
-  customConsoleLog("Salty App");
+  customConsoleLog("Salty");
 }
 
+console.log("active");
 const homepage = window.location.pathname === "/";
 const store = window.location.pathname.includes("/store");
 
