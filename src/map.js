@@ -1,8 +1,10 @@
+import mapboxgl from "mapbox-gl";
+
 console.log("map.js salty-testing");
 var Webflow = Webflow || [];
 Webflow.push(async function () {
   const mapboxToken =
-    "pk.eyJ1IjoiY3YtbWFwYm94IiwiYSI6ImNtNGI1cXZoZzAwN3Mya3I0aDhpbG1mcDgifQ.PfDWN6ZnOAkARNymcsurMQ";
+    "pk.eyJ1IjoiZmVsaXhoZWxsc3Ryb20iLCJhIjoiY20zaXhucjcwMDVwdTJqcG83ZjMxemJlciJ9._TipZd1k8nMEslWbCDg6Eg";
 
   let mapDefaultZoom = 9;
   let mapStartPosition = [-118.37655405160609, 33.78915439099377];
