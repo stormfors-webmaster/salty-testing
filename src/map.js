@@ -1,5 +1,3 @@
-import mapboxgl from "mapbox-gl";
-
 console.log("map.js salty-testing");
 var Webflow = Webflow || [];
 Webflow.push(async function () {
