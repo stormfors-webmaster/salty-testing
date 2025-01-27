@@ -22,7 +22,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "",
+    "dev": "live-server --port=3000 --open=./src/index.js --cors",
     "build": "esbuild ./src/index.js --bundle --minify --outfile=./dist/app.js"
   },
   "devDependencies": {
