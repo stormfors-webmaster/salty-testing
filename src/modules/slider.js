@@ -14,7 +14,7 @@ export class Slider {
     this.nextBtn = document.getElementById(this.nextBtnId);
 
     if (!this.container || !this.prevBtn || !this.nextBtn) {
-      console.error("Required elements not found");
+      //console.error("Required elements not found");
       return;
     }
 
